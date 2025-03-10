@@ -1,0 +1,1865 @@
+/* <-----------=========== [ COLORS ] ===========-----------> */
+
+:root {
+    --scrollbar: #404040;
+
+    --main-bg-color: #000000;
+    --invert-bg-color: #ffffff;
+
+    --main-text-color: #ffffff;
+    --invert-text-color: #000000;
+
+    --sub-title-text-color: rgba(255, 255, 255, 0.8);
+
+    --main-accent-color: #e0b25d;
+
+    --header-div-1: #970a0a;
+    --header-div-2: #6f0000;
+
+    --container-borders: #171717;
+    --container-borders-2: #212121;
+
+    --counter-separator: #222222;
+
+    --countdown-box-gradient-color-1: #000000;
+    --countdown-box-gradient-color-2: #070707;
+    --countdown-box-gradient-color-3: #000000;
+
+    --schedule-container-box-gradient-color-1: #090909;
+    --schedule-container-box-gradient-color-2: #000000;
+    --schedule-container-box-gradient-color-3: #0a0a0a;
+}
+
+/* <-----------=========== [ MOBILE RESPONSIVE ] ===========-----------> */
+
+@media (max-width: 600px) {
+    .schedule-container {
+        padding: 30px !important;
+    }
+
+    .text-div {
+        padding-bottom: 0 !important;
+    }
+
+    .main-text {
+        margin-top: -15px !important;
+    }
+
+    .faded-hr {
+        width: 90%;
+    }
+
+    .countdown-container {
+        gap: 1px !important;
+        width: 100% !important;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin: 0 auto;
+        margin-top: -15px !important;
+    }
+
+    .countdown-box {
+        margin: 0 5px !important;
+        width: 40px !important;
+        height: 93px !important;
+
+    }
+
+    .countdown-box span {
+        font-size: 40px !important;
+        line-height: 1;
+    }
+
+    .separator {
+        font-size: 30px !important;
+        line-height: 0px;
+        padding: 0 !important;
+        margin: 3px;
+    }
+
+    .ritual-table-head {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-between;
+    }
+
+    .container-Title-Span {
+        flex: 1;
+        order: 1;
+    }
+
+    .ritual-table-create {
+        flex-grow: 0;
+        flex-shrink: 0;
+        order: 2;
+    }
+
+    .ritual-table-nav {
+        width: 100%;
+        order: 3;
+    }
+    #content-heroes,
+    #content-psalm,
+    #content-blessing,
+    #content-rtr,
+    #content-demon {
+        margin-top: 48px;
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: flex-start;
+        align-items: center;
+        padding: 0 30px;
+    }
+    #content-heroes a,
+    #content-psalm a,
+    #content-blessing a,
+    #content-rtr a,
+    #content-demon a {
+        width: 100% !important;
+        margin: 10px;
+        text-align: left;
+        font-size: 16px;
+        font-weight: 400;
+        text-decoration: none;
+        color: var(--main-text-color);
+        margin-bottom: 40px;
+        transition: color 0.2s ease-in-out 0s;
+    }
+
+    .guides-container,
+    .guides-bottom-row {
+        grid-template-columns: 1fr !important;
+    }
+
+    #guide-Container>div.guides-container>div {
+        width: 90%;
+        margin: 0 auto;
+    }
+
+    #guide-Container>div.guides-bottom-row>div {
+        width: 90%;
+        margin: 0 auto;
+    }
+
+    body>div>div.ritual-table-head>span {
+        position: absolute;
+        left: 30px;
+    }
+
+    #guide-Toggle>svg {
+        position: absolute;
+        right: 30px;
+        margin-top: -8px;
+    }
+
+    #completedButton {
+        font-size: 12px;
+        font-weight: 600;
+        line-height: 14px;
+        text-decoration: none;
+        transition: background .2s ease-in-out, border .2s ease-in-out, color .2s ease-in-out;
+        align-items: center;
+        border-radius: 256px;
+        cursor: pointer;
+        display: flex;
+        gap: 8px;
+        padding: 8px 12px;
+        box-shadow: 0 0 25px rgb(0, 0, 0);
+    }
+
+    #scheduleContainer {
+        display: flex;
+        align-items: center;
+        flex-direction: column;
+    }
+
+    #create-flow-modal {
+        height: auto !important;
+    }
+
+    .selection-container {
+        margin-bottom: 30px;
+    }
+
+    .scrollable-content input[type="checkbox"]::before {
+        left: 5px;
+    }
+
+    .title,
+    #title {
+        padding: 0 10px;
+    }
+}
+
+/* <-----------=========== [ MAIN ] ===========-----------> */
+
+        .yellowText {
+            color: #ffffc1;
+        }
+        
+        .whiteText{
+            color: white;
+        }
+
+        .dot {
+            color: #ffe2ab;
+            margin: 0 8px;
+        }
+
+        .blueText{
+            color: rgb(186 188 243);
+        }
+        
+        .goldLink {
+            transition: filter .2s ease-in-out;
+            color: #e0b25d;
+            text-decoration: none;
+        }
+        
+        .goldLink:hover {
+            filter: brightness(150%);
+        }
+        
+        .goldLink:active {
+            filter: brightness(90%);
+        }
+        
+
+        .superScript {
+            color: #fffc;
+            font-size: smaller;
+            vertical-align: super;
+            margin: 0 3px;
+
+        }
+
+html {
+    scroll-behavior: smooth;
+  }
+body {
+    margin: 0;
+    background-color: var(--main-bg-color);
+    font-family: "Lato", serif;
+    color: var(--main-text-color);
+    font-size: 16px;
+    font-weight: 400;
+    line-height: 24px;
+}
+
+::selection {
+    background: var(--header-div-2);
+}
+
+* {
+    -webkit-tap-highlight-color: transparent;
+}
+
+*,
+*:before,
+*:after {
+    box-sizing: border-box;
+}
+
+*,
+*:before,
+*:after {
+    box-sizing: border-box;
+}
+
+.faded-hr {
+    height: 1px;
+    background-color: #212121;
+    border: none;
+}
+
+.custom-blue-list {
+    margin: -5px 0;
+}
+
+.custom-blue-list li {
+    color: #d5d6f7;
+    font-weight: bold;
+    margin-left: -40px;
+}
+
+.custom-blue-span {
+    color: #9094ea;
+    font-weight: bold;
+}
+
+body>footer>div>div.footer-links>a {
+    color: rgba(255, 255, 255, 0.8);
+    transition: color 0.2s ease-in-out 0s;
+}
+
+body>footer>div>div.footer-links>a:hover {
+    color: rgb(255, 255, 255);
+
+}
+
+body>footer>div>div.footer-links>a:active {
+    color: rgba(255, 255, 255, 0.6);
+}
+
+.blue-links a {
+    font-size: 16px;
+    font-weight: 600;
+    line-height: 24px;
+    text-decoration: none;
+    font-style: none;
+    color: #A1A4ED;
+    transition: color .2s ease-in-out;
+}
+
+.blue-links a:hover {
+    color: #d5d6f7;
+}
+
+.blue-links a:active {
+    color: #a1a4ed;
+}
+
+body>div.content>ol {
+    line-height: 15px;
+    margin-left: -40px;
+}
+
+/* <-----------=========== [ SCROLLBAR ] ===========-----------> */
+
+::-webkit-scrollbar {
+    width: 7px;
+}
+
+*::-webkit-scrollbar-thumb {
+    border-radius: 256px;
+    background-color: var(--scrollbar);
+}
+
+*::-webkit-scrollbar-track {
+    border-radius: 0;
+    background-color: transparent;
+}
+
+strong {
+    color: white;
+}
+
+/* <-----------=========== [ FONTS ] ===========-----------> */
+
+@font-face {
+    font-family: Lato;
+    src: url(https://josrituals.org/resources/fonts/Lato-Regular.ttf);
+}
+
+/* <-----------=========== [ HEADER ] ===========-----------> */
+
+.header-div {
+    width: 100%;
+    text-align: center;
+}
+
+.div1 {
+    height: 30px;
+    background-color: var(--header-div-1);
+}
+
+.div2 {
+    height: 210px;
+    background-color: var(--header-div-2);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.div2 img {
+    /*     margin-top: -20px;
+    margin-bottom: 10px; */
+    position: absolute;
+    top: 120px;
+    transform: translate(-50%, -50%)
+}
+
+.div3 {
+    height: 200px;
+    background-image: url("https://josrituals.org/resources/images/hero.jpg");
+    background-size: cover;
+    background-position: center;
+}
+
+.page-header-image {
+    height: 200px;
+    opacity: .5;
+    background-size: cover;
+    background-position: center;
+}
+
+.text-div {
+    color: var(--main-text-color);
+    margin: 0 27px;
+    padding: 64px 0;
+    text-align: center;
+}
+
+.main-text {
+    font-size: 24px;
+    font-size: 24px;
+    font-weight: 600;
+    line-height: 36px;
+    text-decoration: none;
+    font-style: none;
+    letter-spacing: 0.54px;
+    position: relative;
+    text-align: center;
+    margin-bottom: 25px;
+}
+
+.sub-text {
+    font-size: 18px;
+    color: var(--main-accent-color);
+    display: inline-flex;
+    align-items: center;
+    font-size: 18px;
+    font-weight: 600;
+    line-height: 28px;
+    text-decoration: none;
+    font-style: none;
+    letter-spacing: 0.54px;
+}
+
+.sub-text svg {
+    margin-right: 10px;
+    fill: var(--main-accent-color);
+    transform: rotate(109deg);
+}
+
+/* <-----------=========== [ COUNTER ] ===========-----------> */
+
+.countdown-container {
+    align-items: center;
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    margin-top: 15px;
+    user-select: none;
+}
+
+.countdown-box {
+    align-items: center;
+    background: radial-gradient(98.61% 100% at 50% 0%,
+            var(--countdown-box-gradient-color-1) 0%,
+            var(--countdown-box-gradient-color-2) 50%,
+            var(--countdown-box-gradient-color-3) 100%);
+    border-radius: 8px;
+    border: 2.5px solid var(--container-borders);
+    display: flex;
+    justify-content: center;
+    padding: 0 16px;
+    margin: 0 5px;
+    height: auto !important;
+}
+
+.countdown-box span {
+    text-decoration: none;
+    -webkit-background-clip: text !important;
+    -webkit-text-fill-color: transparent !important;
+    background-clip: text !important;
+    background: linear-gradient(180deg, var(--header-div-1) 0%, var(--header-div-2) 100%);
+    font-weight: 700px !important;
+    font-size: 150px;
+    line-height: 1;
+}
+
+
+.separator {
+    font-size: 88px;
+    line-height: 126px;
+    color: var(--counter-separator);
+    padding: 24px 15px;
+    display: flex;
+    font-weight: 500;
+    align-items: center;
+}
+
+/* <-----------=========== [ ACTIVE SCHEDULE ] ===========-----------> */
+
+.schedule-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    max-width: 970px;
+    height: auto;
+    margin: 0 auto;
+    padding: 20px;
+    box-sizing: border-box;
+}
+
+.schedule-header {
+    display: flex;
+    max-width: 900px;
+    height: 30px;
+    justify-content: space-between;
+    color: var(--main-text-color);
+    margin-bottom: 20px;
+    align-items: center;
+    font-size: 16px;
+    width: 100%;
+}
+
+.schedule-title {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 15px;
+    font-weight: 700;
+    letter-spacing: .54px;
+}
+
+#active-schedule {
+    background: linear-gradient(270deg,
+            var(--schedule-container-box-gradient-color-1) 0%,
+            var(--schedule-container-box-gradient-color-2) 50%,
+            var(--schedule-container-box-gradient-color-3) 100%);
+    border-radius: 16px;
+    border: 1.5px solid var(--container-borders-2);
+    display: flex;
+    flex-direction: column;
+    gap: 32px;
+    padding: 32px 24px;
+    width: 100%;
+    transition: background 0.5s ease-in-out;
+}
+
+#ritualSelection>div>label>a {
+    user-select: none !important;
+}
+
+.schedule-title>svg {
+    background: var(--invert-bg-color);
+    border-radius: 4px;
+    color: var(--invert-text-color);
+    gap: 8px;
+    padding: 4px;
+    width: 20px;
+    height: 20px;
+}
+
+#scheduleContainer span {
+    font-size: 15px;
+    font-weight: 500;
+    line-height: 20px;
+    text-decoration: underline;
+    font-style: none;
+    color: var(--sub-title-text-color);
+}
+
+#scheduleLink {
+    font-size: 15px;
+    font-weight: 500;
+    line-height: 20px;
+    text-decoration: underline;
+    font-style: none;
+    color: var(--sub-title-text-color);
+}
+
+#ritualSelection a,
+#scheduleLink a {
+    color: #ffffff;
+}
+
+
+
+.dates {
+    align-items: center;
+    display: flex;
+    gap: 8px;
+    display: none;
+}
+
+.hidden {
+    display: none;
+}
+
+.date {
+    align-items: center;
+    background: #271a00;
+    border-radius: 256px;
+    border: 1.5px solid #37280b;
+    color: #ffe2ab;
+    display: flex;
+    gap: 8px;
+    padding: 4px 8px;
+}
+
+.seperator {
+    color: rgba(#fff, 0.6);
+}
+
+#scheduleContainer {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+#completedButton {
+    font-size: 12px;
+    font-weight: 600;
+    line-height: 14px;
+    text-decoration: none;
+    font-style: none;
+    transition: background .2s ease-in-out, border .2s ease-in-out, color .2s ease-in-out, filter .2s ease-in-out;
+    align-items: center;
+    border-radius: 256px;
+    cursor: pointer;
+    gap: 8px;
+    display: flex;
+    padding: 8px 12px;
+    border: 1.5px solid #004200;
+    color: #abffab;
+    background: #002e00;
+    z-index: 1000;
+    visibility: hidden;
+    opacity: 0;
+    transition: opacity 0.4s, visibility 0.4s;
+}
+
+#completedButton.visible {
+    visibility: visible;
+    opacity: 1;
+}
+
+#completedButton:hover {
+    filter: brightness(120%);
+}
+
+#completedButton:active {
+    filter: brightness(80%);
+}
+
+
+#gradient-overlay {
+    display: none;
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: linear-gradient(to top, black, rgba(0, 0, 0, 0.4666));
+    z-index: 2;
+    transition: background .2s ease-in-out;
+    border-radius: 10%;
+}
+
+#active-schedule {
+    position: relative;
+    z-index: 1;
+}
+
+.show-element {
+    display: flex !important;
+}
+
+.hide-element {
+    display: none !important;
+}
+
+
+
+
+/* <-----------=========== [ ACTIVE SCHEDULE - RITUAL CHECKBOXES ] ===========-----------> */
+
+#ritualSelection {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+}
+
+.checkbox-group {
+    display: flex;
+    align-items: center;
+    margin-bottom: 10px;
+}
+
+#ritualSelection input[type="checkbox"] {
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    min-width: 20px;
+    height: 20px;
+    background: black;
+    border: 1.5px solid gray;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background .2s ease-in-out;
+    position: relative;
+    margin-right: 10px;
+    transition: 0.3s;
+}
+
+#ritualSelection input[type="checkbox"]:hover {
+    filter: brightness(1.8);
+}
+
+#ritualSelection input[type="checkbox"]:active {
+    filter: brightness(0.9);
+}
+
+#ritualSelection input[type="checkbox"]:checked {
+    background: #67e05d;
+    border: 1.5px solid #67e05d;
+    transition: background .2s ease-in-out;
+    transition: 0.3s;
+}
+
+#ritualSelection label {
+    color: white;
+    font: inherit;
+    display: flex;
+    align-items: center;
+    transition: 0.3s;
+}
+
+#ritualSelection label i {
+    color: #004200;
+    margin-right: 14px;
+    visibility: hidden;
+    margin-left: -26px;
+    z-index: 1;
+    font-size: 14px;
+}
+
+#ritualSelection input[type="checkbox"]:checked+label i {
+    visibility: visible;
+}
+
+
+/* <-----------=========== [ ACTIVE TABS - RITUALS ] ===========-----------> */
+
+.ritual-table-container {
+    text-align: center;
+    max-width: 950px;
+    margin: 50px auto;
+
+}
+
+.goldText{
+    color: #e0b25d;
+    font-weight: bold;
+}
+
+
+.ritual-table-head {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.ritual-table-nav {
+    display: flex;
+    justify-content: center;
+    flex-grow: 1;
+    position: relative;
+    font-size: 16px;
+    font-weight: 600;
+    line-height: 18px;
+    text-decoration: none;
+    font-style: none;
+    transition: color .2s ease-in-out;
+    color: #b7b792;
+    cursor: pointer;
+}
+
+span.ritual-table-tab.active {
+    color: #ffffc1;
+}
+
+span.ritual-table-tab.active:hover {
+    color: #ffffea;
+}
+
+span.ritual-table-tab:hover {
+    color: #c7c7ab;
+}
+
+.ritual-table-tab {
+    cursor: pointer;
+    padding: 10px;
+    position: relative;
+    z-index: 1;
+    transition: color .2s ease-in-out;
+    user-select: none;
+}
+
+.underline {
+    height: 2px;
+    background: var(--invert-bg-color);
+    transition: all 0.1s ease;
+    position: absolute;
+    bottom: -8px;
+    justify-content: center;
+}
+
+@keyframes slideUp {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.tab-content {
+    display: none;
+    opacity: 0;
+    transform: translateY(20px);
+}
+
+.tab-content.active {
+    display: block;
+    animation: slideUp 0.2s ease forwards;
+}
+
+.container-Title-Span svg {
+    fill: var(--main-accent-color);
+    margin-right: 5px;
+}
+
+.container-Title-Span {
+    color: var(--main-accent-color);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 18px;
+    font-weight: bold;
+    letter-spacing: .54px;
+}
+
+.ritual-table-create {
+    color: var(--main-accent-color);
+    font-size: 16px;
+    font-weight: 800;
+    line-height: 18px;
+    transition: color .2s ease-in-out;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 4px;
+}
+
+.ritual-table-create:hover {
+    color: #e7c27f;
+
+}
+
+#content-psalm,
+#content-blessing,
+#content-rtr,
+#content-demon {
+    margin-top: 48px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: flex-start;
+    align-items: center;
+}
+
+#content-psalm a,
+#content-blessing a,
+#content-rtr a,
+#content-demon a {
+    width: calc(32% - 10px);
+    margin: 10px;
+    text-align: left;
+    font-size: 16px;
+    font-weight: 400;
+    text-decoration: none;
+    color: var(--main-text-color);
+    margin-bottom: 40px;
+    transition: color 0.2s ease-in-out 0s;
+}
+
+#content-psalm a {
+    width: 100%;
+}
+
+#content-psalm a:hover,
+#content-blessing a:hover,
+#content-rtr a:hover,
+#content-demon a:hover {
+    color: rgb(214, 214, 214);
+}
+
+#content-psalm a:active,
+#content-blessing a:active,
+#content-rtr a:active,
+#content-demon a:active {
+    color: rgb(173, 173, 173);
+}
+
+
+/* <-----------=========== [ CREATE FLOW ] ===========-----------> */
+#overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.46);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 100;
+}
+
+#create-flow-modal {
+    transition: opacity .35s cubic-bezier(.2, 1, .3, 1), transform .35s cubic-bezier(.2, 1, .3, 1), visibility .35s cubic-bezier(.2, 1, .3, 1);
+    background: radial-gradient(100% 100% at 100% 0%, #181818 0%, #181818 50%, #161616 100%);
+    border-radius: 16px;
+    box-shadow: 0 10px 20px #0000003d, 0 6px 6px #00000052;
+    z-index: 100;
+    width: 550px;
+    height: 530px;
+}
+
+#create-flow-modal header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 1.5px solid #262626;
+    margin-bottom: 20px;
+}
+
+#close-modal,
+header h2 {
+    margin: 24px 32px 24px;
+}
+
+#close-modal {
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    color: #FFFFFF66;
+    transition: color .2s ease-in-out;
+}
+
+#close-modal:hover {
+    color: #fff9;
+}
+
+#close-modal:active {
+    color: #fffc;
+}
+
+.flow-content {
+    padding: 0 32px;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    gap: 32px;
+}
+
+header h2 {
+    color: var(--main-accent-color);
+    font-size: 18px;
+    font-weight: 700;
+    line-height: 20px;
+    align-items: center;
+    display: flex;
+    gap: 8px;
+    letter-spacing: .54px;
+}
+
+.scrollable-content {
+    background: #0f0f0f;
+    border-radius: 12px;
+    border: 2.5px solid #222222;
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+    height: 100%;
+    max-height: 270px;
+    max-width: 476px;
+    overflow-y: auto;
+    padding: 24px;
+    position: relative;
+    width: 100%;
+    user-select: none;
+}
+
+.scrollable-content h3 {
+    font-size: 14px;
+    font-weight: 600;
+    text-decoration: none;
+    font-style: none;
+    color: #fff9;
+    margin-bottom: -10px;
+}
+
+.scrollable-content h3:first-child {
+    margin-top: -3px;
+}
+
+.scrollable-content div {
+    display: flex;
+    align-items: center;
+    margin-bottom: 10px;
+}
+
+.selection-container {
+    margin-top: -10px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 5px;
+}
+
+#selection-counter {
+    font-size: 14px;
+    font-weight: 500;
+    line-height: 20px;
+    text-decoration: none;
+    font-style: none;
+    color: #fff9;
+}
+
+#selection-counter span {
+    color: #fff;
+    margin: 0 2px;
+}
+
+.selection-container button.disabled {
+    background: #2b2b2b;
+    border: none;
+    text-align: center;
+    font-size: 14px;
+    font-weight: 700;
+    line-height: 16px;
+    text-decoration: none;
+    border-radius: 8px;
+    gap: 8px;
+    overflow: hidden;
+    padding: 12px;
+    color: #fff6;
+    font-family: inherit;
+    margin-right: 5px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    transition: background .35s cubic-bezier(.2, 1, .3, 1), color .35s cubic-bezier(.2, 1, .3, 1), transform .35s cubic-bezier(.2, 1, .3, 1);
+}
+
+.selection-container button.create {
+    background: #4a1c0a;
+    border: none;
+    text-align: center;
+    font-size: 14px;
+    font-weight: 700;
+    line-height: 16px;
+    text-decoration: none;
+    border-radius: 8px;
+    gap: 8px;
+    overflow: hidden;
+    padding: 12px;
+    color: var(--main-accent-color);
+    font-family: inherit;
+    margin-right: 5px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    transition: background .35s cubic-bezier(.2, 1, .3, 1), color .35s cubic-bezier(.2, 1, .3, 1), transform .35s cubic-bezier(.2, 1, .3, 1);
+    cursor: pointer;
+}
+
+@keyframes pulsate {
+
+    0%,
+    100% {
+        transform: scale(1);
+    }
+
+    50% {
+        transform: scale(1.05);
+    }
+}
+
+@keyframes slideColor {
+    from {
+        background-size: 0% 100%;
+    }
+
+    to {
+        background-size: 100% 100%;
+    }
+}
+
+.selection-container button.load {
+    background: linear-gradient(to right, #6e2a0f, #6e2a0f) no-repeat #4a1c0a;
+    background-size: 0% 100%;
+    border: none;
+    text-align: center;
+    font-size: 14px;
+    font-weight: 700;
+    line-height: 16px;
+    text-decoration: none;
+    border-radius: 8px;
+    gap: 8px;
+    overflow: hidden;
+    padding: 12px;
+    padding-left: 15px;
+    color: var(--main-accent-color);
+    font-family: inherit;
+    margin-right: 5px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    transition: color .35s cubic-bezier(.2, 1, .3, 1), transform .35s cubic-bezier(.2, 1, .3, 1);
+    cursor: pointer;
+    animation: slideColor 3s forwards, pulsate 2s infinite ease-in-out;
+    display: none;
+}
+
+
+.create-flow-rotate {
+    animation: spin 2s linear infinite;
+}
+
+@keyframes spin {
+    0% {
+        transform: rotate(0deg);
+    }
+
+    100% {
+        transform: rotate(360deg);
+    }
+}
+
+
+.selection-container button.create:hover {
+    background: #5c230c;
+    color: #e3ba6e;
+}
+
+.selection-container button.create:active {
+    background: #381508;
+    color: #ddaa4c;
+}
+
+
+.scrollable-content input[type="checkbox"] {
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    width: 20px;
+    height: 20px;
+    background: black;
+    border: 1.5px solid gray;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background .2s ease-in-out;
+    position: relative;
+    margin-right: 18px;
+    transition: 0.3s;
+}
+
+.scrollable-content input[type="checkbox"]:hover {
+    filter: brightness(1.8);
+}
+
+.scrollable-content input[type="checkbox"]:active {
+    filter: brightness(0.9);
+}
+
+.scrollable-content input[type="checkbox"]:checked {
+    background: #5d62e0;
+    border: 1.5px solid #5d62e0;
+    transition: background .2s ease-in-out;
+    transition: 0.3s;
+
+}
+
+.scrollable-content input[type="checkbox"]::before {
+    content: attr(data-number);
+    position: absolute;
+    left: 6px;
+    top: 2px;
+    font-size: 13px;
+    font-weight: 700;
+    line-height: 14px;
+    color: #000242;
+    visibility: hidden;
+    font-family: inherit;
+}
+
+.scrollable-content input[type="checkbox"]:checked::before {
+    visibility: visible;
+}
+
+#header- a {
+    position: absolute;
+    top: 0;
+    left: 0;
+    background: transparent;
+    height: 30px;
+    width: 30px;
+    user-select: none;
+}
+
+/* <-----------=========== [ GUIDES ] ===========-----------> */
+
+body>div:nth-child(7)>div>span>svg {
+    margin-right: 10px;
+}
+
+#guide-Toggle svg.rotated {
+    transform: rotate(270deg);
+}
+
+#guide-Toggle svg {
+    cursor: pointer;
+}
+
+.guides-container {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-gap: 38px;
+    justify-content: center;
+    margin-bottom: 38px;
+    width: 100%;
+    margin-top: 38px;
+}
+
+.guides-image img,
+.guides-div img {
+    width: 100%;
+    height: 100%;
+    border-radius: 15px;
+
+}
+
+.guides-image,
+.guides-div {
+    transition: transform 0.3s ease-in-out, filter 0.3s ease-in-out;
+}
+
+.guides-image:hover,
+.guides-div:hover {
+    filter: brightness(1.1);
+    transform: scale(1.01)
+}
+
+.guides-image {
+    background-color: transparent;
+    height: 200px;
+
+}
+
+.guides-bottom-row {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-gap: 38px;
+    justify-content: center;
+}
+
+.guides-div {
+    background-color: transparent;
+    height: 260px;
+}
+
+.guides-text,
+.guides-text-small {
+    margin-top: 20px;
+    text-align: left;
+    font-size: 12px;
+    font-weight: 600;
+    line-height: 14px;
+    text-decoration: none;
+    font-style: none;
+    align-items: center;
+    color: #fff9;
+    display: flex;
+    gap: 8px;
+    text-transform: uppercase;
+    white-space: nowrap;
+    letter-spacing: 0.56px;
+}
+
+.guides-text-small {
+    font-size: smaller;
+}
+
+#guide-Container>div.guides-bottom-row>div>a.guides-text-small,
+#guide-Container>div.guides-container>div>a.guides-text-small {
+    text-transform: none;
+    font-size: 16px;
+    font-weight: 500;
+    line-height: 24px;
+    color: rgb(255, 255, 255);
+    text-decoration: none;
+    transition: filter 0.3s ease-in-out 0s;
+}
+
+#guide-Container>div.guides-bottom-row>div>a.guides-text-small:hover,
+#guide-Container>div.guides-container>div>a.guides-text-small:hover {
+    filter: brightness(0.7);
+
+}
+
+#guide-Container>div.guides-bottom-row>div>a.guides-text-small:active,
+#guide-Container>div.guides-container>div>a.guides-text-small:active {
+    filter: brightness(1.3);
+
+}
+
+.bullet-separator {
+    margin: 0 2px;
+    color: #fff6;
+
+}
+
+/* <-----------=========== [ FOOTER ] ===========-----------> */
+
+.footer {
+    align-items: center;
+    display: flex;
+    flex-direction: column;
+    margin-top: 148px;
+    background: rgb(7, 7, 7);
+    border-top: 1.5px solid rgb(33, 33, 33);
+    gap: 48px;
+    padding: 52px 48px 32px;
+    min-height: 228px !important;
+    max-height: 228px !important;
+    position: relative;
+}
+
+.footer-img {
+    position: absolute;
+    top: -75px;
+    height: 156px;
+    filter: brightness(0) saturate(100%) invert(18%) sepia(49%) saturate(2180%) hue-rotate(335deg) brightness(103%) contrast(101%);
+    cursor: pointer;
+}
+
+.footer-text>div,
+.footer-links {
+    font-size: 12px;
+    font-weight: 600;
+    line-height: 14px;
+    color: rgba(255, 255, 255, 0.6);
+    text-decoration: none;
+    text-align: center;
+    margin-top: 40px;
+}
+
+.footer-links {
+    display: flex;
+    align-items: center;
+    gap: 40px;
+    text-align: center;
+    margin-top: 48px;
+}
+
+.footer-links a {
+    color: white;
+    text-decoration: none;
+}
+
+#JoSRituals {
+    font-size: 24px;
+    font-weight: 700;
+    font-family: Cardo, serif;
+    color: #8d1e1e;
+    text-align: center;
+    margin-top: 10px;
+}
+
+
+/* Page CSS */
+
+#title {
+    font-size: 24px;
+    font-weight: 600;
+    line-height: 36px;
+    text-decoration: none;
+    font-style: none;
+    letter-spacing: .54px;
+    position: relative;
+    text-align: center;
+}
+
+#title-div {
+    align-items: center;
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+    padding-top: 48px;
+}
+
+#author {
+    font-size: 12px;
+    font-weight: 600;
+    line-height: 14px;
+    text-decoration: none;
+    font-style: none;
+    align-items: center;
+    color: #fff9;
+    display: flex;
+    gap: 8px;
+    text-transform: uppercase;
+    white-space: nowrap;
+}
+
+p {
+    font-size: 16px;
+    font-weight: 400;
+    line-height: 24px;
+    text-decoration: none;
+    font-style: none;
+    color: #fffc;
+}
+
+.content {
+    display: flex;
+    flex-direction: column;
+    gap: 32px;
+    margin: 64px auto 96px;
+    max-width: 838px;
+    padding: 0 32px;
+    user-select: auto;
+}
+
+.content p {
+    margin: 0;
+}
+
+.content h2 {
+    font-size: 20px;
+    font-weight: 400;
+    line-height: 32px;
+    text-decoration: none;
+    font-style: none;
+    border-bottom: 1.5px solid #212121;
+    color: #ffffc1;
+    padding: 0 0 12px;
+    margin: 0px;
+}
+
+/* <-----------=========== [ RITUAL PAGES ] ===========-----------> */
+
+
+#title-div-ritual {
+    align-items: center;
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+    padding-top: 88px;
+}
+
+.category {
+    font-size: 12px;
+    font-weight: 700;
+    line-height: 14px;
+    text-decoration: none;
+    font-style: none;
+    align-items: center;
+    background: #242424;
+    border-radius: 256px;
+    color: #e0b25d;
+    display: flex;
+    gap: 8px;
+    padding: 8px 10px;
+}
+
+.fancy-list {
+    list-style: none;
+    counter-reset: list-counter;
+    padding-left: 0;
+    max-width: 750px;
+}
+
+.fancy-list li {
+    counter-increment: list-counter;
+    position: relative;
+    padding-left: 40px;
+    margin-bottom: 32px;
+    font-size: 16px;
+    font-weight: 500;
+    line-height: 24px;
+}
+
+.fancy-list li::before {
+    content: counter(list-counter);
+    position: absolute;
+    left: 0;
+    top: 50%;
+    transform: translateY(-50%);
+    font-size: 14px;
+    font-weight: 600;
+    line-height: 16px;
+    text-decoration: none;
+    font-style: none;
+    align-items: center;
+    background: #242424;
+    border-radius: 256px;
+    color: #fff9;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    justify-content: center;
+    min-height: 24px;
+    min-width: 24px;
+}
+
+.ritual-container-runes {
+    background: linear-gradient(270deg, #090909 0%, #000 50%, #0a0a0a 100%);
+    border-radius: 16px;
+    border: 1.5px solid #212121;
+    display: flex;
+    gap: 36px;
+    max-width: 790px;
+    padding: 32px 24px;
+    position: relative;
+    user-select: auto;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: nowrap;
+    width: 100%;
+    flex-direction: column;
+    text-align: left;
+}
+
+.ritual-container-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    min-width: 100%;
+}
+
+.ritual-container-vibrate-left {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 16px;
+    font-weight: 600;
+    line-height: 18px;
+    text-decoration: none;
+    font-style: none;
+    align-items: center;
+    display: flex;
+    gap: 12px;
+}
+
+.ritual-container-vibrate-left svg {
+    align-items: center;
+    background: #ffffff;
+    border-radius: 4px;
+    color: #000;
+    display: contents;
+    display: flex;
+    justify-content: center;
+    padding: 4px;
+}
+
+.completed-Button {
+    font-size: 12px;
+    font-weight: 600;
+    line-height: 14px;
+    text-decoration: none;
+    font-style: none;
+    transition: background .2s ease-in-out, border .2s ease-in-out, color .2s ease-in-out, filter .2s ease-in-out;
+    transition: 0.2s !important;
+    align-items: center;
+    border-radius: 256px;
+    cursor: pointer;
+    gap: 8px;
+    display: flex;
+    padding: 8px 12px;
+    z-index: 1000;
+    visibility: visible;
+    opacity: 1;
+    transition: opacity 0.4s, visibility 0.4s;
+    user-select: none;
+}
+
+.innactive {
+    background: #181818 !important;
+    color: #fffc;
+    border: 1.5px solid #2b2b2b;
+}
+
+.completed {
+    border: 1.5px solid #004200;
+    color: #abffab;
+    background: #002e00 !important;
+}
+
+
+.completed-Button.visible {
+    visibility: visible;
+    opacity: 1;
+}
+
+.completed-Button:hover {
+    filter: brightness(120%);
+}
+
+.completed-Button:active {
+    filter: brightness(80%);
+}
+
+.instructions {
+    font-size: 14px;
+    font-weight: 500;
+    line-height: 20px;
+    text-decoration: none;
+    font-style: none;
+    color: #fffc;
+    text-align: left;
+}
+
+.demon-intro-anchor {
+    transition: color .2s ease-in-out;
+    color: #ffffc1;
+    text-decoration: none;
+}
+
+.demon-intro-anchor:hover {
+    color: #ffffea;
+}
+
+.demon-intro-anchor:active {
+    color: #ffff6f;
+}
+
+.runes-container-group {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+}
+
+.rune-name {
+    margin-top: 18px;
+    font-weight: bold;
+}
+
+.rune-name span {
+    margin-left: 3px;
+}
+
+.runes-list {
+    gap: 48px;
+    display: flex;
+    justify-content: space-between;
+    flex-direction: row;
+}
+
+.runes-container-group a {
+    transition: filter .2s ease;
+    border-radius: 8px;
+    border: 1.5px solid #2b2b2b;
+    display: flex;
+    width: fit-content;
+}
+
+.runes-container-group a:hover {
+    filter: brightness(1.3);
+}
+
+.runes-container-group a:active {
+    filter: brightness(.8);
+}
+
+.gradient-overlay {
+    display: none;
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: linear-gradient(to top, rgb(0, 0, 0), rgba(0, 0, 0, 0.4666));
+    z-index: 2;
+    transition: background .2s ease-in-out;
+    border-radius: 16px;
+}
+
+.affirmations-container {
+    font-size: 16px;
+    font-weight: 500;
+    line-height: 24px;
+    text-decoration: none;
+    font-style: none;
+    color: #fff;
+}
+
+.final-set p{
+    font-weight: bold;
+    color: white;
+    line-height: 68px;
+    margin: -25px 0;
+}
+
+.final-set span{
+    margin-left: 5px;
+}
+
+.darkerText{
+    color: #FFFFFF99;
+}
+
+.white-no-border{
+    color: white !important;
+    border-bottom: none !important;
+}
+
+.final-instructions{
+font-size: 16px;
+font-weight: 500;
+line-height: 24px;
+text-decoration: none;
+font-style: none;
+color: #fffc;
+}
+
+.white-span{
+    color: white !important;
+    font-weight: bold;
+}
+
+@media only screen and (max-width: 480px) {
+    .sigilsImages{
+        flex-direction: column !important;
+    }
+}
+
+.settings-toggle {
+    background: rgb(36, 36, 36);
+    border-radius: 50%;
+    height: 30px;
+    width: 30px;
+    border: none;
+    color: rgba(255, 255, 255, 0.7);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: all 0.2s ease-in-out;
+    position: fixed;
+    bottom: 55px;
+    right: 55px;
+    z-index: 100 !important;
+}
+
+.settings-toggle:hover {
+    filter: brightness(120%);
+    color: rgba(255, 255, 255, 0.9);
+}
+
+.settings-toggle:active {
+    filter: brightness(80%);
+    color: rgba(255, 255, 255, 0.4);
+}
+
+.sigilpicFixed,
+#sigilpicFixed {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    z-index: 10000;
+    opacity: 0; 
+    transition: opacity 0.5s ease; 
+    border-radius: 18px;
+    transform: scale(0.9);
+    transition: opacity 0.5s ease, transform 0.5s ease;
+}
+#sigilpic{
+    width: 400px;
+    height: 400px;
+}
+
+#GodSigil{
+    width: 350px;
+}
+
+
+
+.sigilsImages{
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+    align-items: center;
+    justify-content: center;
+}
+
+.settings-panel {
+    transition: opacity .35s cubic-bezier(.2,1,.3,1), transform .35s cubic-bezier(.2,1,.3,1), visibility .35s cubic-bezier(.2,1,.3,1);
+    align-items: flex-start;
+    background: radial-gradient(100% 100% at 100% 0%, #181818 0%, #181818 50%, #161616 100%);
+    border-radius: 16px;
+    box-shadow: 0 10px 20px #0000003d, 0 6px 6px #00000052;
+    display: none;
+    flex-direction: column;
+    gap: 24px;
+    max-width: 291px;
+    padding: 24px 0;
+    pointer-events: initial;
+    transform: none;
+    visibility: visible;
+    width: 100%;
+    position: fixed;
+    bottom: 95px;
+    right: 55px;
+    z-index: 10001;
+}
+
+.settings-panel-content {
+    padding: 0 24px;
+    width: 100%;
+    font-size: 14px;
+}
+
+.slider-labels {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 10px; /* Space between labels and slider */
+}
+
+#width-slider {
+    -webkit-appearance: none;
+    width: 100%;
+    height: 4px;
+    background: linear-gradient(to right, #e0b25d 0%, #e0b25d var(--thumb-percentage, 40%), #cdcaca99 var(--thumb-percentage, 0%), #cdcaca99 100%);
+    border-radius: 4px;
+    outline: none;
+    transition: opacity .2s;
+}
+
+#width-slider::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    appearance: none;
+    width: 20px;
+    height: 20px;
+    background: white;
+    cursor: pointer;
+    border-radius: 50%;
+    margin-top: -3px;
+    margin-left: 3px;
+
+}
+
+#width-slider::-moz-range-thumb {
+    width: 20px;
+    height: 20px;
+    background: white;
+    cursor: pointer;
+    border-radius: 50%;
+}
+
+.slider-value,
+#slider-value{
+    color: #cdcaca99 !important;
+}

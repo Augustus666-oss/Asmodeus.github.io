@@ -1,0 +1,84 @@
+document.addEventListener('DOMContentLoaded', function () {
+    var image = document.getElementById('navigable-image');
+    image.addEventListener('click', function () {
+        window.location.href = '/';
+    });
+});
+
+$(document).ready(function() {
+  $('.completed-Button').click(function() {
+      var $button = $(this);
+      var $overlay = $button.siblings('.gradient-overlay');
+      var svgHtml = '<svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" class="lucide-icon lucide lucide-check "><polyline points="20 6 9 17 4 12"></polyline></svg>';
+
+      $button.removeClass('inactive');
+
+      if ($button.hasClass('completed')) {
+          $button.removeClass('completed-style').removeClass('completed');
+          $button.html('Complete');
+          $overlay.fadeOut('slow');
+      } else {
+          $button.addClass('completed').html(svgHtml + ' Completed');
+          $overlay.fadeIn('slow');            }
+  });
+});
+
+
+window.onscroll = function() {
+var titleElement = document.getElementById('title');
+var endingElement = document.getElementById('ending');
+var sigilpicFixed = document.getElementById('sigilpicFixed');
+
+var titleRect = titleElement.getBoundingClientRect();
+var endingRect = endingElement.getBoundingClientRect();
+
+var endingElementDistanceToTop = endingElement.offsetTop; // Get the distance from the top of the document to the ending element
+
+// Check if the user has scrolled past the title element
+if (window.scrollY > titleRect.bottom) {
+  sigilpicFixed.style.opacity = 1; // Fade in and grow the fixed image
+  sigilpicFixed.style.transform = 'scale(1)';
+} else {
+  sigilpicFixed.style.opacity = 0; // Fade out and shrink the fixed image
+  sigilpicFixed.style.transform = 'scale(0.9)';
+}
+
+// Check if the user has scrolled past the ending element
+if (window.scrollY + window.innerHeight > endingElementDistanceToTop) {
+  sigilpicFixed.style.opacity = 0; // Fade out and shrink the fixed image
+  sigilpicFixed.style.transform = 'scale(0.9)';
+}
+};
+
+$(document).ready(function() {
+$('.settings-toggle').click(function() {
+  $('#settingsPanel').toggle();
+});
+
+$(document).click(function(event) {
+  if (!$(event.target).closest('.settings-toggle, #settingsPanel').length) {
+      $('#settingsPanel').hide();
+  }
+});
+
+if (window.innerWidth <= 600) { 
+  $('#width-slider').val(70).trigger('change');
+}
+
+$('#width-slider').on('input change', function() {
+  var sliderValue = $(this).val();
+  $('#sigilpicFixed').css('width', sliderValue + '%');
+  $('#slider-value').text(sliderValue + '%');
+});
+});
+
+$('#width-slider').on('input change', function() {
+var sliderValue = $(this).val();
+var percentage = (sliderValue - this.min) / (this.max - this.min) * 100;
+$('#sigilpicFixed').css('width', sliderValue + '%');
+$('#slider-value').text(sliderValue + '%');
+
+// Update the slider's background gradient
+$(this).css('--thumb-percentage', percentage + '%');
+});
+
